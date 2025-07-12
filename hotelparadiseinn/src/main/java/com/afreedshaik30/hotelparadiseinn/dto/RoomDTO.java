@@ -11,7 +11,7 @@ public class RoomDTO {
     private Long id;
     private String roomType;
     private BigDecimal roomPrice;
-    private String roomPhotoUrl;
+    private String roomImgUrl;
     private String roomDescription;
     private List<BookingDTO> bookings;
 
@@ -39,12 +39,12 @@ public class RoomDTO {
         this.roomPrice = roomPrice;
     }
 
-    public String getRoomPhotoUrl() {
-        return roomPhotoUrl;
+    public String getRoomImgUrl() {
+        return roomImgUrl;
     }
 
-    public void setRoomPhotoUrl(String roomPhotoUrl) {
-        this.roomPhotoUrl = roomPhotoUrl;
+    public void setRoomImgUrl(String roomImgUrl) {
+        this.roomImgUrl = roomImgUrl;
     }
 
     public String getRoomDescription() {

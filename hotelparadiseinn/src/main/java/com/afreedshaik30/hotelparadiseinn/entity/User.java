@@ -36,40 +36,24 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
 
+// To determine what roles/permissions a user has, username/email, password.
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role));
     }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
     @Override
     public String getUsername() {
         return email;
     }
-
     @Override
-    public boolean isAccountNonExpired() {
-        return true;
+    public String getPassword() {
+        return password;
     }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return UserDetails.super.isAccountNonLocked();
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    // Return true because I don’t have specific account lock/expiration logic
+    @Override public boolean isAccountNonExpired() { return true; }
+    @Override public boolean isAccountNonLocked() { return true; }
+    @Override public boolean isCredentialsNonExpired() { return true; }
+    @Override public boolean isEnabled() { return true; }
 
     public Long getId() {
         return id;
@@ -123,3 +107,7 @@ public class User implements UserDetails {
         this.bookings = bookings;
     }
 }
+
+/*
+    implements UserDetails — allows it to work directly with Spring Security
+*/

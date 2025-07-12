@@ -12,13 +12,13 @@ import java.util.Date;
 import java.util.function.Function;
 
 @Service
-public class JWTUtills {
+public class JWTUtils {
 
     private static final long EXPIRATION_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
     private final SecretKey secretKey; //obj
 
-    public JWTUtills() {
-        String secret = "aG90ZWxwYXJhZGlzZWlubg=="; //hotelparadiseinn to base64 encoded
+    public JWTUtils() {
+        String secret = "aG90ZWxwYXJhZGlzZWlubjIwOFQxQTA1NjA5MDE0NzgyOTg2"; //hotelparadiseinn208T1A05609014782986 to base64 encoded
         byte[] keyBytes = Base64.getDecoder().decode(secret);
         this.secretKey = Keys.hmacShaKeyFor(keyBytes);
     }
